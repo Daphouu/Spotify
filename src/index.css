@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Spotify Colors */
+  --spotify-green: #1DB954;
+  --spotify-green-hover: #1ed760;
+  
+  /* App Colors */
+  --bg-dark: #000000;
+  --bg-darker: #0a0a0a;
+  --surface-dark: #121212;
+  --surface-light: #181818;
+  --surface-hover: #282828;
+  --text-primary: #FFFFFF;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #7a7a7a;
+  
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, rgba(29,185,84,0.1) 0%, rgba(0,0,0,0) 100%);
+  --grad-card: linear-gradient(180deg, rgba(24,24,24,0.8) 0%, rgba(18,18,18,0.3) 100%);
+  --grad-button: linear-gradient(90deg, #1DB954 0%, #1ed760 100%);
+  
+  /* Others */
+  --font-primary: 'Outfit', sans-serif;
+  --font-secondary: 'Plus Jakarta Sans', sans-serif;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-pill: 500px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(24, 24, 24, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-md);
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(45deg, #fff, #b3b3b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-spotify {
+  color: var(--spotify-green);
+}
+
+/* Button variants */
+.btn-primary {
+  background: var(--grad-button);
+  color: var(--bg-dark);
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: var(--border-radius-pill);
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 20px rgba(29, 185, 84, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-range {
+  padding: 8px 20px;
+  border-radius: 500px;
+  background: var(--surface-light);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.btn-range.active {
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  font-weight: 600;
+}
+
+.btn-logout {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: rgba(255,255,255,0.05);
+  color: #ef4444;
+}
+
+.btn-magic {
+  background: rgba(29, 185, 84, 0.1);
+  color: var(--spotify-green);
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.btn-magic:hover {
+  background: rgba(29, 185, 84, 0.2);
+  transform: translateY(-1px);
+}
+
+.list-item {
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(29, 185, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0); }
+}
+
+.pulse {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section */
+.hero-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-bg-blob {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(29,185,84,0.15) 0%, rgba(0,0,0,0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hover);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

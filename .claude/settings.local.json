@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:5174/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:3000/api/history)",
+      "Bash(curl -s -o /dev/null -w \"extract=%{http_code}\\\\n\" -X POST http://127.0.0.1:3000/api/extract -H \"Content-Type: application/json\" -d '{\"url\":\"https://open.spotify.com/playlist/abc\",\"spotifyToken\":\"fake\"}')",
+      "Bash(curl -s -o /dev/null -w \"chat=%{http_code}\\\\n\" -X POST http://127.0.0.1:3000/api/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hi\",\"context\":\"test\"}')",
+      "Bash(curl -s -o /tmp/embed.html -w \"status=%{http_code}\\\\n\" \"https://open.spotify.com/embed/playlist/1kOxpfgghaXghH47rqsVh7\" -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\")",
+      "Read(//tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -o /tmp/album.html -w \"status=%{http_code}\\\\n\" \"https://open.spotify.com/embed/album/1A2GTWGtFfWp7KSQTwWOyo\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -X POST http://127.0.0.1:3000/api/extract -H \"Content-Type: application/json\" -d '{\"url\":\"https://open.spotify.com/playlist/1kOxpfgghaXghH47rqsVh7?si=0feb2b1477544deb\"}')",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('title:', d['metadata']['title']\\); print\\('creator:', d['metadata']['creator']\\); print\\('track count:', len\\(d['tracks']\\)\\); print\\('first 3:'\\); [print\\(' ',t\\) for t in d['tracks'][:3]]\")"
+    ]
+  }
+}
